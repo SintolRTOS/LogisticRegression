@@ -4,7 +4,6 @@ Created on Wed Jul  3 16:56:09 2019
 
 @author: wangjingyi
 """
-
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
@@ -29,4 +28,10 @@ cl = cl.fit(X_train,y_train)
 print('逻辑回归的测试准确率：'+str(cl.score(X_test,y_test))+'\n')
 
 '''打印f1得分'''
-print('F1得分阵：'+'\n'+str(cm(y_test,cl.predict(X_test)))+'\n')
+print('F1得分：'+str(f1(y_test,cl.predict(X_test)))+'\n')
+
+'''打印召回得分'''
+print('召回得分（越接近1越好）：'+str(recall(y_test,cl.predict(X_test)))+'\n')
+
+'''打印混淆矩阵'''
+print('混淆矩阵：'+'\n'+str(cm(y_test,cl.predict(X_test)))+'\n')
